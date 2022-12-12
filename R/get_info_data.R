@@ -11,7 +11,11 @@
 #' @export
 #' @examples
 #' example <- get_info_data(data = iris)
-#' dput(example)
+#' #dput(example)
+#' example
+#' 
+#' get_info_data(data = my_dataset)
+#' 
 #' 
 get_info_data <- function(data){
   

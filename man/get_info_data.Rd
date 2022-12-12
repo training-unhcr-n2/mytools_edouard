@@ -17,6 +17,10 @@ allow to have information on a data set passed in parameter: dimensions and name
 }
 \examples{
 example <- get_info_data(data = iris)
-dput(example)
+#dput(example)
+example
+
+get_info_data(data = my_dataset)
+
 
 }
