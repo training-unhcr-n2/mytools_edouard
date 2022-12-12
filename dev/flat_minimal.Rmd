@@ -76,7 +76,43 @@ test_that("get_info_data works", {
 })
 ```
   
-
+# get_mean_data
+    
+```{r function-get_mean_data}
+#' get mean from data
+#' 
+#' Get a table with the average of all numeric variables in your dataset as parameter. 
+#' (If the input table has no numeric variables, then the function must return an explicit message)
+#' @param data a numeric vector
+#' @return mean numeric value for the mean
+#' 
+#' @export
+get_mean_data <- function(data){
+  
+  
+  if(! (is.numeric(data)) ) stop( "mydata is not a numeric")
+  result <- mean(data)
+  return(result )
+  
+    
+}
+```
+  
+```{r example-get_mean_data}
+test <- c(1,2,3)
+get_mean_data(data = test)
+```
+  
+```{r tests-get_mean_data}
+test_that("get_mean_data works", {
+  mymean <- get_mean_data(data =  c(1,2,3))
+  expect_true(inherits(get_mean_data, "function")) 
+  expect_error(get_mean_data(data = c("a")) , "mydata is not a numeric")
+  expect_type( mymean, "double")
+  expect_identical( mymean,2)
+})
+```
+  
 
 ```{r development-inflate, eval=FALSE}
 # Run but keep eval=FALSE to avoid infinite loop
