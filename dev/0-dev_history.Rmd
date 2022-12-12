@@ -16,16 +16,16 @@ All commands that you use to use when developing packages...
 fusen::fill_description(
   pkg = here::here(),
   fields = list(
-    Title = "Build A Package From Rmarkdown File",
+    Title = "My Tools",
     Description = "Use Rmarkdown First method to build your package. Start your package with documentation. Everything can be set from a Rmarkdown file in your project.",
     `Authors@R` = c(
-      person("Sebastien", "Rochette", email = "sebastien@thinkr.fr", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1565-9313")),
-      person(given = "ThinkR", role = "cph")
+      person("Edouard", "Legoupil", email = "legoupil@unhcr.org", role = c("aut", "cre"), comment = c(ORCID = "0")),
+      person(given = "UNHCR", role = "cph")
     )
   )
 )
 # Define License with use_*_license()
-usethis::use_mit_license("Sébastien Rochette")
+usethis::use_mit_license("Edouard Legoupil")
 ```
 
 # Start using git
@@ -36,6 +36,11 @@ usethis::use_git()
 usethis::git_vaccinate()
 # Use main for primary branch
 usethis::git_default_branch_rename()
+
+usethis::use_git_remote("origin",
+                        url = "https://github.com/training-unhcr-n2/mytools_edouard.git",
+                        overwrite = TRUE)
+
 ```
 
 # Set extra sources of documentation
@@ -46,7 +51,7 @@ remotes::install_local()
 # README
 usethis::use_readme_rmd()
 # Code of Conduct
-usethis::use_code_of_conduct("contact@fake.com")
+usethis::use_code_of_conduct("legoupil@unhcr.org")
 # NEWS
 usethis::use_news_md()
 ```
