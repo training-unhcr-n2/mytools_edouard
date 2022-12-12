@@ -18,29 +18,64 @@ library(testthat)
 pkgload::load_all(export_all = FALSE)
 ```
 
-# My function
-
-```{r function-my_fun}
-#' my_fun Title
-#'
-#' @return 1
+# get_info_data
+    
+```{r function-get_info_data}
+#' Get info  on data
+#' 
+#' allow to have information on a data set passed in parameter: dimensions and name of columns in a list
+#' 
+#' @param data a data object
+#' 
+#' @return a lit that contained the dimension and data object variable names
+#' 
 #' @export
-#'
-#' @examples
-my_fun <- function() {
-  1
+get_info_data <- function(data){
+  
+  ## error management
+  # data <- "1"
+  #stopifnot(is.data.frame(data))
+  if(! (is.data.frame(data)) ) stop( "mydata is not a data frame")
+  
+  ## Get object dimension
+  dimension = dim(data)
+  
+  ## get object name
+  names = names(data)
+  
+  return ( info = list( dimension = dimension,
+                        names = names))
+    
 }
 ```
+  
+```{r example-get_info_data}
+example <- get_info_data(data = iris)
+dput(example)
 
-```{r examples-my_fun}
-my_fun()
 ```
-
-```{r tests-my_fun}
-test_that("my_fun works", {
-
+  
+```{r tests-get_info_data}
+test_that("get_info_data works", {
+  
+  check <- get_info_data(data = iris)
+  expect_true(inherits(get_info_data, "function")) 
+  expect_error(get_info_data(data = "1"), "mydata is not a data frame")
+  expect_type(check, "list")
+  expect_identical(check,
+                   list(
+                     dimension = c(150L, 5L),
+                     names = c(
+                       "Sepal.Length",
+                       "Sepal.Width",
+                       "Petal.Length",
+                       "Petal.Width",
+                       "Species"
+                     )
+                   ))
 })
 ```
+  
 
 
 ```{r development-inflate, eval=FALSE}
