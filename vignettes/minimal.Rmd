@@ -41,5 +41,19 @@ dput(example)
 
   
 
+# get_mean_data
+
+    
+
+  
+
+```{r example-get_mean_data}
+test <- c(1,2,3)
+get_mean_data(data = test)
+```
+
+  
+
+  
 
 
