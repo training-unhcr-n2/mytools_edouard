@@ -16,7 +16,23 @@ library(testthat)
 ```{r development-load}
 # Load already included functions if relevant
 pkgload::load_all(export_all = FALSE)
+
+
 ```
+
+```{r}
+# # Or use existing dataset 
+# my_dataset <- dplyr::starwars |>
+#               dplyr::pull(species) |>
+#               as.data.frame()
+# #   
+# usethis::use_data(my_dataset, overwrite = TRUE)
+# 
+# cat(sinew::makeOxygen("my_dataset"),file = here::here("R","doc_my_dataset.R") )
+# 
+# rstudioapi::navigateToFile(here::here("R","doc_my_dataset.R"))
+```
+
 
 # get_info_data
     
@@ -51,7 +67,11 @@ get_info_data <- function(data){
   
 ```{r example-get_info_data}
 example <- get_info_data(data = iris)
-dput(example)
+#dput(example)
+example
+
+get_info_data(data = my_dataset)
+
 
 ```
   
