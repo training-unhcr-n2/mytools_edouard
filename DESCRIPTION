@@ -6,9 +6,7 @@ Authors@R: c(
            comment = c(ORCID = "0")),
     person("UNHCR", role = "cph")
   )
-Description: Use Rmarkdown First method to build your package. Start your
-    package with documentation. Everything can be set from a Rmarkdown
-    file in your project.
+Description: A simple package to get info on a specific dataset.
 License: MIT + file LICENSE
 Depends: 
     R (>= 2.10)
