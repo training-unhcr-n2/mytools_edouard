@@ -41,6 +41,16 @@ usethis::use_git_remote("origin",
                         url = "https://github.com/training-unhcr-n2/mytools_edouard.git",
                         overwrite = TRUE)
 
+usethis::use_build_ignore("docs")
+
+# options(repos = c(
+# gadenbuie = "https://gadenbuie.r-universe.dev",
+# getOption("repos")
+# ))
+# 
+# install.packages("grkstyle")
+grkstyle::grk_style_file(here::here("dev","flat_minimal.Rmd"))
+
 ```
 
 # Set extra sources of documentation
